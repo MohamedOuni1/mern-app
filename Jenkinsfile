@@ -12,14 +12,14 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+   /*     stage('Checkout') {
             steps {
                 git branch: 'main',
                     url: 'git@github.com:MohamedOuni1/mern-app.git',
                     credentialsId: 'github_ssh'
             }
         }
-
+*/
         stage('Build Server Image') {
             when { changeset "server/*"}
             steps {
