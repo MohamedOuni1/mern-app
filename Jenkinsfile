@@ -21,7 +21,7 @@ pipeline {
         }
 */
         stage('Build Server Image') {
-            when { changeset "server/*"}
+           // when { changeset "server/*"}
             steps {
                 dir('server') {
                     script {
@@ -32,7 +32,7 @@ pipeline {
         }
 
         stage('Build Client Image') {
-            when { changeset "client/*"}
+         //   when { changeset "client/*"}
             steps {
                 dir('client') {
                     script {
@@ -43,7 +43,7 @@ pipeline {
         }
 
         stage('Scan Server Image') {
-            when { changeset "server/*"}
+        //    when { changeset "server/*"}
             steps {
                 script {
                     sh """
@@ -57,7 +57,7 @@ pipeline {
         }
 
         stage('Scan Client Image') {
-            when { changeset "client/*"}
+       //     when { changeset "client/*"}
             steps {
                 script {
                     sh """
@@ -71,7 +71,7 @@ pipeline {
         }
 
         stage('Push Server Image to Docker Hub') {
-            when { changeset "server/*"}
+      //      when { changeset "server/*"}
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
@@ -81,7 +81,7 @@ pipeline {
             }
         }
         stage('Push Client Image to Docker Hub') {
-            when { changeset "client/*"}
+    //        when { changeset "client/*"}
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
